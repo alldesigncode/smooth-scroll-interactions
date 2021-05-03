@@ -1,0 +1,49 @@
+.main {
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+}
+
+section.images {
+  height: 200vh;
+  position: relative;
+
+  figure {
+    position: absolute;
+    width: 347.1px;
+    height: 350px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .iphone {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+}
+
+.text-container {
+  position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: max-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+
+  font-size: 100px;
+  text-transform: capitalize;
+}

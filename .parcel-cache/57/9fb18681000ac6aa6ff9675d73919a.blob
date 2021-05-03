@@ -1,0 +1,180 @@
+var _data = require("./data");
+var _gsap = require("gsap");
+var _gsapScrollTrigger = require("gsap/ScrollTrigger");
+var _smoothScrollbar = require("smooth-scrollbar");
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+var _smoothScrollbarDefault = _parcelHelpers.interopDefault(_smoothScrollbar);
+_gsap.gsap.registerPlugin(_gsapScrollTrigger.ScrollTrigger);
+window.addEventListener("load", () => {
+  const text = document.querySelector(".text-container > h1");
+  const scrollbar = document.querySelector(".main");
+  const renderImages = () => {
+    const iphone = document.createElement("div");
+    iphone.classList.add("iphone");
+    const svgIphone = document.createElement('img');
+    svgIphone.src = '../assets/iPhone 12 Pro.svg';
+    _data.data.forEach(d => {
+      const img = document.createElement("img"), fig = document.createElement("figure");
+      img.src = d.imageSrc;
+      fig.appendChild(img);
+      document.querySelector("section.images").appendChild(fig);
+    });
+    document.querySelector("section.images").appendChild(iphone);
+  };
+  const initScroll = () => {
+    const verticalScrollbar = _smoothScrollbarDefault.default.init(scrollbar, {
+      damping: 0.1,
+      delegateTo: document
+    });
+    verticalScrollbar.setPosition(0, 0);
+    verticalScrollbar.track.xAxis.element.remove();
+    verticalScrollbar.track.yAxis.element.remove();
+    _gsapScrollTrigger.ScrollTrigger.scrollerProxy(".main", {
+      scrollTop(value) {
+        if (arguments.length) {
+          verticalScrollbar.scrollTop = value;
+        }
+        return verticalScrollbar.scrollTop;
+      }
+    });
+  };
+  initScroll();
+  renderImages();
+  const images = document.querySelectorAll("section.images > figure");
+  _gsap.gsap.to(images[0], {
+    duration: 0,
+    right: 0,
+    top: "3%",
+    zIndex: 0
+  });
+  _gsap.gsap.to(images[1], {
+    duration: 0,
+    right: 0,
+    top: "11%",
+    zIndex: 2
+  });
+  _gsap.gsap.to(images[2], {
+    duration: 0,
+    right: 0,
+    top: "30%",
+    zIndex: 1
+  });
+  _gsap.gsap.to(images[3], {
+    duration: 0,
+    right: "12%",
+    top: "17%",
+    zIndex: 3
+  });
+  _gsap.gsap.to(images[4], {
+    duration: 0,
+    right: "19%",
+    top: "10%",
+    zIndex: 1
+  });
+  _gsap.gsap.to(images[5], {
+    duration: 0,
+    right: "18%",
+    top: "33%",
+    zIndex: 0
+  });
+  const defaultScrollConfig = {
+    trigger: ".main",
+    start: "30px top",
+    scroller: scrollbar,
+    end: "+=100%",
+    scrub: 1
+  };
+  const endPosition = {
+    top: "78%",
+    rotate: 0,
+    left: "50%",
+    transform: "translate(-50%, -50%)"
+  };
+  _gsap.gsap.to(text, {
+    x: -1000,
+    scrollTrigger: {
+      ...defaultScrollConfig
+    }
+  });
+  _gsap.gsap.timeline({
+    scrollTrigger: {
+      ...defaultScrollConfig
+    }
+  }).to("body", {
+    background: "#ffffff"
+  }).to("body", {
+    background: "#5bd7ff"
+  });
+  const tl = _gsap.gsap.timeline({
+    scrollTrigger: {
+      ...defaultScrollConfig
+    }
+  }).to(images[0], {
+    top: "65%",
+    rotate: 20,
+    left: "60%",
+    transform: "translate(-50%, -50%)"
+  }).to(images[0], {
+    ...endPosition
+  });
+  const tl1 = _gsap.gsap.timeline({
+    scrollTrigger: {
+      ...defaultScrollConfig
+    }
+  }).to(images[1], {
+    top: "65%",
+    rotate: -20,
+    left: "60%",
+    transform: "translate(-50%, -50%)"
+  }).to(images[1], {
+    ...endPosition
+  });
+  const tl2 = _gsap.gsap.timeline({
+    scrollTrigger: {
+      ...defaultScrollConfig
+    }
+  }).to(images[2], {
+    top: "65%",
+    rotate: 17,
+    left: "60%",
+    transform: "translate(-50%, -50%)"
+  }).to(images[2], {
+    ...endPosition
+  });
+  const tl3 = _gsap.gsap.timeline({
+    scrollTrigger: {
+      ...defaultScrollConfig
+    }
+  }).to(images[3], {
+    top: "65%",
+    rotate: -30,
+    left: "60%",
+    transform: "translate(-50%, -50%)"
+  }).to(images[3], {
+    ...endPosition
+  });
+  const tl4 = _gsap.gsap.timeline({
+    scrollTrigger: {
+      ...defaultScrollConfig
+    }
+  }).to(images[4], {
+    top: "65%",
+    rotate: 30,
+    left: "60%",
+    transform: "translate(-50%, -50%)"
+  }).to(images[4], {
+    ...endPosition
+  });
+  const tl5 = _gsap.gsap.timeline({
+    scrollTrigger: {
+      ...defaultScrollConfig
+    }
+  }).to(images[5], {
+    top: "65%",
+    rotate: 45,
+    left: "60%",
+    transform: "translate(-50%, -50%)"
+  }).to(images[5], {
+    ...endPosition
+  });
+});

@@ -1,0 +1,69 @@
+:root {
+  --default-font: Arial, Helvetica, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--default-font);
+  overscroll-behavior: none;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.main {
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+}
+
+section {
+  height: 200vh;
+  position: relative;
+}
+section figure {
+  position: absolute;
+  width: 347.1px;
+  height: 350px;
+}
+section figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+section .iphone {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.text-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: max-content;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  font-size: 100px;
+  text-transform: capitalize;
+}
+/*# sourceMappingURL=index.HASH_REF_62e29be6db72205ee17af4d6088b44af.css.map */
